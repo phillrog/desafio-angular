@@ -8,11 +8,11 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = environment.apiAuth; 
+  
   private api = {
-    login : `${this.baseUrl}/Account/Login`,
-    statusUsuario:`${this.baseUrl}/api/status`,
-    endSessionEndpoint: `${this.baseUrl}/connect/endsession?post_logout_redirect_uri=${encodeURIComponent(`${this.baseUrl}/home`)}`
+    login : `${environment.apiBFF}/Account/Login?returnUrl=${encodeURIComponent(`${environment.baseUrl}`)}`,
+    statusUsuario:`${environment.apiBFF}/status`,
+    logout:  `${environment.apiBFF}/Account/Logout?returnUrl=${encodeURIComponent(`${environment.baseUrl}`)}`,
   }
 
   private isBrowser: boolean;
@@ -59,7 +59,7 @@ export class AuthService {
   public logout(): void {
     
     if (this.isBrowser) {
-        window.location.href = this.api.endSessionEndpoint;
+        window.location.href = this.api.logout;
     }
   }
 }

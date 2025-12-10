@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +12,15 @@ import { AuthService } from './auth/auth.service';
 })
 export class App {
   protected readonly title = signal('bankmore');
-  private protectedEndpoint = 'http://localhost:5000/api/status'; 
     
-    constructor(private http: HttpClient, private auth: AuthService) {}
+    constructor(private auth: AuthService) {}
 
     ngOnInit(): void {
       this.verifyAuthentication();
     }
 
     verifyAuthentication() {
-        this.http.get(this.protectedEndpoint)
+        this.auth.isAuthenticated()
             .subscribe({
                 next: (response) => {
                     console.log('Sessão ativa. App pode carregar o conteúdo.');
@@ -31,9 +31,5 @@ export class App {
                     }
                 }
             });
-    }
-
-    logout(){
-      this.auth.logout();
-    }
+    }    
 }

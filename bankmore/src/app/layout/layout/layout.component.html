@@ -1,0 +1,40 @@
+
+<mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav #sidenav mode="side" [opened]="true" class="sidenav custom-sidenav-dark">
+        <span class="user-greeting-sidenav">
+            Olá, {{ (informacoes$ | async)?.data?.nome || 'Carregando...' }}
+        </span>
+        <mat-nav-list class="sidenav-flex-container">
+            <a mat-list-item routerLink="/home"  class="nav-link" routerLinkActive="active-link-highlight">
+                <mat-icon>home</mat-icon> Início
+            </a>
+            <a mat-list-item routerLink="/transferencias" class="nav-link" routerLinkActive="active-link-highlight">
+                <mat-icon>send</mat-icon> Transferências
+            </a>
+            <a mat-list-item (click)="logout()" class="logout-button-yellow nav-link logout-fixed-bottom">
+                <mat-icon>logout</mat-icon> Sair
+            </a>            
+        </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        
+        <mat-toolbar class="custom-toolbar-black toolbar-with-border">
+            <button mat-icon-button (click)="sidenav.toggle()" class="menu-icon-yellow">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="logo-text-white">BankMore</span>
+            
+            <span class="spacer"></span>
+
+            
+        </mat-toolbar>
+
+        <main class="content-area custom-content-light">
+            <router-outlet></router-outlet>
+        </main>
+        
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>

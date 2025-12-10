@@ -1,9 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow-x: hidden;
+  }
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@tailwind
+/* O restante das suas importações CSS/Material Theme vem abaixo */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  --color-black: #1C1C1C;      /* Principal Escuro */
+  --color-yellow: #FFC107;    /* Destaque (Amarelo) */
+  --color-dark-gray: #2E2E2E; /* Sidenav */
+  --color-light-gray: #F5F5F5; /* Fundo do Conteúdo */
+  --color-white: #FFFFFF;
+}
 
