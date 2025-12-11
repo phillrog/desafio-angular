@@ -1,0 +1,80 @@
+<div class="extrato-container">
+    <mat-card class="extrato-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon color="primary">receipt_long</mat-icon> Extrato de Movimentações
+        </mat-card-title>
+        <mat-card-subtitle>Últimas transações da sua conta</mat-card-subtitle>
+      </mat-card-header>
+  
+      <mat-card-content class="table-content">
+  
+        <div *ngIf="isLoadingResults" class="loading-overlay">
+          <div class="spinner-center">
+            <mat-spinner diameter="40" ></mat-spinner>
+            
+          </div>
+          <p>Carregando extrato...</p>
+        </div>
+  
+        <div *ngIf="error" class="error-message">
+          <mat-icon color="warn">error_outline</mat-icon>
+          <strong>Erro:</strong> {{ error }}
+        </div>
+  
+        <table mat-table [dataSource]="dataSource" class="extrato-table" *ngIf="!isLoadingResults && !error">
+  
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef> Data/Hora </th>
+            <td mat-cell *matCellDef="let element"> 
+              {{ element.data | date: 'dd/MM/yyyy HH:mm' }} 
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef> Tipo </th>
+            <td mat-cell *matCellDef="let element"> 
+              <span [class.credit-badge]="element.tipo === 'CRÉDITO'" [class.debit-badge]="element.tipo === 'DÉBITO'">
+                {{ element.tipo }}
+              </span>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef> Valor </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="getTipoClasse(element.tipo)">
+              {{ element.valor | currency }}
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="contraparte">
+            <th mat-header-cell *matHeaderCellDef> Contraparte </th>
+            <td mat-cell *matCellDef="let element"> 
+              <span class="contraparte-name">{{ element.nomeContraparte }}</span>
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="contas">
+            <th mat-header-cell *matHeaderCellDef> Origem/Destino </th>
+            <td mat-cell *matCellDef="let element"> 
+              <div *ngIf="element.tipo === 'CRÉDITO'">
+                <mat-icon color="primary" class="icon-small">arrow_downward</mat-icon> Origem: {{ element.numeroContaOrigem }}
+              </div>
+              <div *ngIf="element.tipo === 'DÉBITO'">
+                <mat-icon color="warn" class="icon-small">arrow_upward</mat-icon> Destino: {{ element.numeroContaDestino }}
+              </div>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="5">Nenhuma movimentação encontrada.</td>
+          </tr>
+  
+        </table>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>

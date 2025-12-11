@@ -8,7 +8,7 @@
         
         <mat-nav-list class="sidenav-flex-container">
             <a mat-list-item routerLink="/home"  class="nav-link" routerLinkActive="active-link-highlight">
-                <mat-icon>home</mat-icon> Início
+                <mat-icon>home</mat-icon> Extrato
             </a>
             <a mat-list-item routerLink="/transferencias" class="nav-link" routerLinkActive="active-link-highlight">
                 <mat-icon>send</mat-icon> Transferências
@@ -29,7 +29,7 @@
             
             <span class="spacer"></span>
             <span class="text-right">
-                Saldo: {{ (saldo$ | async)?.data?.saldoAtualizado | currency:'BRL':'symbol':'1.2-2'}}
+                Saldo: {{ ((saldo$ | async)?.data?.saldoAtualizado | currency) || 'Carregando...'}}
             </span>
             
         </mat-toolbar>

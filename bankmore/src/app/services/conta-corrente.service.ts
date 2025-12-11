@@ -7,9 +7,11 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ContaCorrenteService {
+  private baseApi = `${environment.apiBFF}/ContasCorrentes`;
   private api = {
-    informacoes : `${environment.apiBFF}/ContasCorrentes/informacoes`,
-    saldo : `${environment.apiBFF}/ContasCorrentes/saldo`,
+    informacoes : `${this.baseApi}/informacoes`,
+    saldo : `${this.baseApi}/saldo`,
+    extrato: `${this.baseApi}/extrato`,
   } 
 
   constructor(private http: HttpClient) { }
@@ -20,5 +22,9 @@ export class ContaCorrenteService {
 
   getSaldo(): Observable<any> {
     return this.http.get<any>(this.api.saldo);
+  }
+
+  getExtrato(): Observable<any> {
+    return this.http.get<any>(this.api.extrato);
   }
 }

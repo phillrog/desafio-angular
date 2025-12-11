@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
+import { ExtratoComponent } from './extrato/extrato.component';
 
 
 export const routes: Routes = [
@@ -7,11 +8,15 @@ export const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-        //   { path: 'home', component: HomeComponent },
-        //   { path: 'contas', component: ContasComponent },
-        //   { path: 'transferencias', component: TransferenciasComponent },
-        //   // Redireciona a raiz para 'home'
-        //   { path: '', redirectTo: 'home', pathMatch: 'full' }, 
+          { 
+            path: 'extrato', 
+            component: ExtratoComponent 
+          },        
+          { 
+              path: '', 
+              redirectTo: 'extrato', 
+              pathMatch: 'full' 
+          },
         ]
       },
 ];

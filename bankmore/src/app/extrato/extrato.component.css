@@ -1,0 +1,84 @@
+/* src/app/components/extrato/extrato.component.css */
+
+.extrato-container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .extrato-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cores para Débito/Crédito */
+  .credit-amount {
+    color: #4CAF50; /* Verde */
+    font-weight: bold;
+  }
+  
+  .debit-amount {
+    color: #F44336; /* Vermelho */
+    font-weight: bold;
+  }
+  
+  /* Badges para o Tipo */
+  .credit-badge, .debit-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .credit-badge {
+    background-color: #e8f5e9; /* Fundo verde claro */
+    color: #388e3c; /* Texto verde escuro */
+  }
+  
+  .debit-badge {
+    background-color: #ffebee; /* Fundo vermelho claro */
+    color: #d32f2f; /* Texto vermelho escuro */
+  }
+  
+  .contraparte-name {
+    font-weight: 500;
+  }
+  
+  .icon-small {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  
+  /* Alinhamento da tabela */
+  .extrato-table {
+    width: 100%;
+  }
+  
+  .mat-column-valor {
+    text-align: right;
+  }
+  
+  /* Mensagem de Erro/Carregamento */
+  .loading-overlay, .error-message {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .error-message {
+    border: 1px solid #f44336;
+    background-color: #ffebee;
+    color: #d32f2f;
+    margin-top: 15px;
+    border-radius: 4px;
+  }
+
+  .spinner-center {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
