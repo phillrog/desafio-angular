@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ExtratoComponent implements OnInit {
   
-  displayedColumns: string[] = ['data', 'tipo', 'valor', 'contraparte', 'contas'];
+  displayedColumns: string[] = ['data', 'descricao', 'tipo', 'valor', 'contraparte', 'contas'];
   
   dataSource = new MatTableDataSource<Extrato>([]);
   

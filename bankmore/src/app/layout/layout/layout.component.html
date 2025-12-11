@@ -2,6 +2,9 @@
 <mat-sidenav-container class="sidenav-container">
 
     <mat-sidenav #sidenav mode="side" [opened]="true" class="sidenav custom-sidenav-dark">
+        <span class="account-highlight">
+            Conta: {{ (informacoes$ | async)?.data?.numero || 'Carregando...'}}
+        </span>
         <span class="user-greeting-sidenav">
             Olá, {{ (informacoes$ | async)?.data?.nome || 'Carregando...' }}
         </span>
@@ -26,8 +29,7 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <span class="logo-text-white">BankMore</span>
-            
-            <span class="spacer"></span>
+            <span class="spacer"></span>            
             <span class="text-right">
                 Saldo: {{ ((saldo$ | async)?.data?.saldoAtualizado | currency) || 'Carregando...'}}
             </span>

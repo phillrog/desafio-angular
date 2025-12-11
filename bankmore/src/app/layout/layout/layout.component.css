@@ -127,7 +127,7 @@
 .sidenav-flex-container {
     display: flex;
     flex-direction: column;
-    height: 90%;
+    height: 80%;
     padding: 0;
 }
 
@@ -140,4 +140,24 @@
 .nav-link:hover {
     color: var(--color-white) !important;
     background-color: var(--color-yellow);
+}
+
+.account-highlight {
+    /* Destacar a cor (Ex: amarelo do seu tema) */
+    color: var(--custom-yellow-color, #FFEB3B); /* Use a variável de cor do seu tema */
+    
+    /* Aumentar a fonte */
+    font-size: 1.15em; 
+    font-weight: bold;
+    
+    /* Garantir que cada um fique em sua própria linha (ou bloco) */
+    display: block;
+    
+    /* Adicionar um pequeno espaçamento inferior para separá-lo do 'Olá, Nome' */
+    margin-bottom: 0.5rem; 
+    
+    /* Adicionar padding lateral, se necessário, para alinhar com o menu */
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    padding-top: 1rem; /* Adicionar um padding superior se a conta for o primeiro item */
 }

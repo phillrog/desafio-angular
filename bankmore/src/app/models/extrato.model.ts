@@ -6,4 +6,5 @@ export interface Extrato {
     nomeContraparte: string;
     numeroContaOrigem: number;
     numeroContaDestino: number;
+    descricao: string;
   }
