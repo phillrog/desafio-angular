@@ -34,11 +34,22 @@ export class ExtratoComponent implements OnInit {
         this.isLoadingResults = false;
         this.cd.markForCheck();
       }),
-      map((response: Response<Extrato>) => {
+      map((response: Response<Extrato[]>) => {
         this.isLoadingResults = false;
         this.cd.markForCheck();
         if (response.success && response.data) {
-          return response.data;
+          return response.data.map(item => {
+            
+            const dataKey = 'data'; 
+            let dataString = (item as any)[dataKey];
+            
+            // Verifica se a string da data não termina com 'Z' e adiciona 'Z'
+            if (dataString && typeof dataString === 'string' && !dataString.endsWith('Z')) {
+                dataString = dataString + 'Z';
+            }
+            
+            return { ...item, [dataKey]: dataString };
+          });
         } else {          
           this.error = response.errors ? response.errors.join('; ') : 'Não foi possível carregar o extrato.';
           return [];

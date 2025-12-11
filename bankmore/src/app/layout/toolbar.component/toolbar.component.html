@@ -4,7 +4,10 @@
     </button>
     <span class="logo-text-black"><span style="color: #ff8c00;">Bank</span>More</span>
     <span class="spacer"></span>
-    <span class="text-right">
-        Saldo: {{ (saldo?.data?.saldoAtualizado | currency) || 'Carregando...'}}
-    </span>
+    
+    <ng-container *ngIf="saldo$ | async as saldoCompleto">
+        <span class="text-right">
+            Saldo: {{ (saldoCompleto?.data?.saldoAtualizado | currency) || 'Carregando...'}}
+        </span>
+    </ng-container>
 </mat-toolbar>

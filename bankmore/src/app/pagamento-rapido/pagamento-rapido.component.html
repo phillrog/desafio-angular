@@ -79,12 +79,18 @@
   
         <mat-card-actions align="end">
           <button 
-            mat-raised-button 
-            color="primary" 
-            type="submit" 
-            [disabled]="pagamentoForm.invalid">
-            <mat-icon>send</mat-icon> Pagar
-          </button>
+    mat-raised-button 
+    color="primary" 
+    type="submit" 
+    [disabled]="isSubmitting || pagamentoForm.invalid"> <ng-container *ngIf="!isSubmitting">
+        PAGAR AGORA
+    </ng-container>
+
+    <ng-container *ngIf="isSubmitting">
+        <mat-spinner diameter="20" color="accent" style="display: inline-block; margin-right: 8px;"></mat-spinner>
+        Processando...
+    </ng-container>
+</button>
         </mat-card-actions>
         
       </form>
