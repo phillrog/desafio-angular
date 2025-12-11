@@ -1,0 +1,25 @@
+<span class="account-highlight">
+    Conta: {{ informacoes?.data?.numero || 'Carregando...'}}
+</span>
+<span class="user-greeting-sidenav">
+    Olá, {{ informacoes?.data?.nome || 'Carregando...' }}
+</span>
+
+<mat-nav-list class="sidenav-flex-container">
+    <a mat-list-item routerLink="/extrato" class="nav-link" routerLinkActive="active-link-highlight">
+        <mat-icon>home</mat-icon>
+        <span class="menu-descricao">Extrato</span>
+    </a>
+    <a mat-list-item routerLink="/pagamento-rapido" class="nav-link" routerLinkActive="active-link-highlight">
+        <mat-icon>credit_card</mat-icon>
+        <span class="menu-descricao">Pagar</span>
+    </a>
+    <a mat-list-item routerLink="/transferencias" class="nav-link" routerLinkActive="active-link-highlight">
+        <mat-icon>send</mat-icon>   
+        <span class="menu-descricao">Transferências</span>
+    </a>
+    <a mat-list-item (click)="onLogout()" class="logout-button-yellow nav-link logout-fixed-bottom">
+        <mat-icon>logout</mat-icon>   
+        <span class="menu-descricao">Sair</span>
+    </a>
+</mat-nav-list>

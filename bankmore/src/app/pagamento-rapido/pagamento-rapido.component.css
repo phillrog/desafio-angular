@@ -1,0 +1,49 @@
+.pagamento-card {
+    /* Limita a largura do card em telas maiores para evitar que fique muito esticado */
+    max-width: 500px; 
+    /* Centraliza o card na tela */
+    margin: 30px auto;
+    /* Garante um bom espaçamento interno e visualização */
+  }
+  
+  .mat-mdc-card-header {
+    /* Espaçamento abaixo do cabeçalho */
+    padding-bottom: 20px;
+  }
+  
+  .mat-mdc-card-header .mat-icon {
+    /* Alinha o ícone com o texto do título */
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .conta-radio-group {
+    /* Define a lista de rádio botões como uma coluna (vertical) */
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  /* Garante que o input de formulário ocupe toda a largura disponível no card */
+  .full-width-input {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para garantir que os itens da lista fiquem bem espaçados */
+  .mat-mdc-list-item {
+    cursor: pointer;
+  }
+  
+  /* Ajuste o espaçamento do botão de ação */
+  .mat-mdc-card-actions {
+    padding-top: 20px;
+  }
+
+  ::ng-deep mat-list-item {
+    height: 36px !important;
+  }
+
+  ::ng-deep  mat-form-field input {
+    text-align: end !important;
+}

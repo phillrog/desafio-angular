@@ -1,0 +1,10 @@
+<mat-toolbar class="custom-toolbar-white toolbar-with-border">
+    <button mat-icon-button (click)="onMenuToggle()" class="menu-icon-yellow">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="logo-text-black"><span style="color: #ff8c00;">Bank</span>More</span>
+    <span class="spacer"></span>
+    <span class="text-right">
+        Saldo: {{ (saldo?.data?.saldoAtualizado | currency) || 'Carregando...'}}
+    </span>
+</mat-toolbar>

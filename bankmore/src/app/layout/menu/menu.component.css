@@ -1,0 +1,101 @@
+.sidenav {
+    width: 250px;
+    padding: 15px;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Estilo do Sidenav Dark */
+.custom-sidenav-dark {
+    background-color: var(--color-dark-gray);
+    width: 250px;
+    box-shadow: 2px 0 6px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column; 
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Destaque do número da Conta */
+.account-highlight {
+    color: var(--custom-yellow-color, #FFEB3B);
+    font-size: 1.15em; 
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid var(--color-yellow);
+}
+
+/* Saudação do Usuário */
+.user-greeting-sidenav {
+    display: block;
+    padding: 20px 16px;
+    color: var(--color-white);
+    font-size: 1.1em;
+    font-weight: 500;
+    
+}
+
+/* Contêiner Flex para lista de navegação (para empurrar o Logout) */
+.sidenav-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 80%; /* Ajuste percentual para dar espaço ao conteúdo */
+    padding: 0;
+}
+
+/* Estilos de Link Comuns */
+.custom-sidenav-dark a.mat-list-item {
+    color: var(--color-white);
+    margin-bottom: 5px;
+}
+
+/* Ícones na Sidenav */
+.custom-sidenav-dark mat-icon {
+    color: var(--color-yellow);
+    margin-right: 8px;
+}
+
+/* Hover e Link Ativo */
+
+.custom-sidenav-dark a.mat-list-item,
+.nav-link {
+    /* Define o tempo de suavização */
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-sidenav-dark a.mat-list-item:hover,
+.nav-link.active-link-highlight {
+    background-color: rgba(255, 193, 7, 0.1); 
+    color: var(--color-yellow) !important;
+    border-bottom: 1px solid var(--color-yellow);
+}
+
+/* Efeito de Hover que afeta o texto e o ícone (substituindo ::ng-deep) */
+.nav-link:hover {
+    color: var(--color-white) !important;
+    background-color: var(--color-yellow);
+}
+
+.nav-link:hover mat-icon {
+    color: var(--color-white) !important;
+}
+
+/* Posicionamento Fixo do Botão Sair */
+.logout-fixed-bottom {
+    margin-top: auto !important; 
+    margin-bottom: 10px;
+}
+
+/* Cor do Ícone de Logout (pode ser amarela) */
+.logout-button-yellow {
+    color: var(--color-yellow) !important;
+}
+
+.menu-descricao {
+    padding: 0 12px !important;
+}

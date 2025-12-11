@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { ContaCorrenteService } from '../../services/conta-corrente.service';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../../shared/material-module';
+import { MenuComponent } from '../menu/menu.component';
+import { ToolbarComponent } from '../toolbar.component/toolbar.component';
 
 @Component({
   selector: 'app-layout',
   imports: [
     RouterModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
+    RouterOutlet,
+    MaterialModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MenuComponent,
+    ToolbarComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',

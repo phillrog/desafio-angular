@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { MaterialModule } from './shared/material-module';
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MaterialModule],

@@ -1,0 +1,34 @@
+.custom-toolbar-white {
+    background-color: var(--color-white) !important;
+    color: #000 !important; /* Cor padrão para textos, exceto onde sobrescrito */
+    height: 64px;
+}
+
+/* Borda Inferior Amarela */
+.toolbar-with-border {
+    border-bottom: 3px solid var(--color-yellow); 
+    box-sizing: border-box; 
+}
+
+/* Logo Textual */
+.logo-text-black {
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+/* Cor Amarela para Ícones Chave (Menu) */
+.menu-icon-yellow {
+    color: var(--color-yellow) !important;
+}
+
+/* O Spacer é essencial para empurrar o conteúdo para a direita */
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* O Saldo será branco ou herda do .custom-toolbar-black */
+.text-right {
+    font-weight: 500;
+}

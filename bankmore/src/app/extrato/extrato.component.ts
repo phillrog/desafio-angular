@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, catchError, of, map } from 'rxjs';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Observable, catchError, of, map, delay, finalize } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { Extrato } from '../models/extrato.model';
 import { Response } from '../models/response.model';
@@ -24,15 +24,19 @@ export class ExtratoComponent implements OnInit {
   
   error: string | null = null;
 
-  constructor(private contaService: ContaCorrenteService) { }
+  constructor(private contaService: ContaCorrenteService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.isLoadingResults = true;
         
     this.contaService.getExtrato().pipe(
+      finalize(()=>{
+        this.isLoadingResults = false;
+        this.cd.markForCheck();
+      }),
       map((response: Response<Extrato>) => {
         this.isLoadingResults = false;
-        
+        this.cd.markForCheck();
         if (response.success && response.data) {
           return response.data;
         } else {          
@@ -42,6 +46,7 @@ export class ExtratoComponent implements OnInit {
       }),
       catchError(err => {
         this.isLoadingResults = false;
+        this.cd.markForCheck();
         this.error = 'Erro de conexão: Não foi possível acessar o serviço de extrato.';
         console.error('Erro HTTP/Rede:', err);
         return of([]);

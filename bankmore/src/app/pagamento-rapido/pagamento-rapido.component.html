@@ -1,0 +1,92 @@
+<mat-card class="pagamento-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>payment</mat-icon>
+        Pagamento Rápido de Contas
+      </mat-card-title>
+      <mat-card-subtitle>Selecione uma conta ou informe a descrição para pagar.</mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <form [formGroup]="pagamentoForm" (ngSubmit)="fazerPagamento()">
+        
+        <mat-radio-group 
+          aria-label="Selecione a conta" 
+          formControlName="contaSelecionada" 
+          class="conta-radio-group">
+          
+          <mat-list>
+            <mat-list-item *ngFor="let conta of contasPredefinidas">
+              <mat-icon matListItemIcon>{{ conta.icone }}</mat-icon>
+              <mat-radio-button [value]="conta.id" matListItemTitle>
+                {{ conta.nome }}
+              </mat-radio-button>
+            </mat-list-item>
+          </mat-list>
+        </mat-radio-group>
+  
+        <mat-error 
+            *ngIf="pagamentoForm.get('contaSelecionada')?.invalid && (pagamentoForm.get('contaSelecionada')?.touched || formSubmitted)">
+          A seleção de uma conta é obrigatória.
+        </mat-error>
+        
+        <mat-divider style="margin: 15px 0;"></mat-divider>
+  
+        <mat-form-field appearance="fill" class="full-width-input" *ngIf="isOutrosSelected">
+          <mat-label>Descrição do Pagamento (máx. 170 caracteres)</mat-label>
+          <input 
+            matInput 
+            formControlName="descricao" 
+            maxlength="170" 
+            placeholder="Ex: Doação para caridade">
+            
+          <mat-hint align="end">{{ pagamentoForm.get('descricao')?.value?.length || 0 }}/170</mat-hint>
+          
+          <mat-error *ngIf="pagamentoForm.get('descricao')?.hasError('required')">
+            A descrição é obrigatória para a opção "Outros".
+          </mat-error>
+          <mat-error *ngIf="pagamentoForm.get('descricao')?.hasError('maxlength')">
+            A descrição deve ter no máximo 170 caracteres.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width-input">
+          <mat-label>Valor do Pagamento</mat-label>
+          <input 
+            matInput 
+            formControlName="valor" 
+            type="number" 
+            placeholder="0,00" 
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+            min="0.01"
+            step="0.01">
+            <span matTextPrefix>R$&nbsp;</span>
+          
+          <mat-error *ngIf="pagamentoForm.get('valor')?.hasError('required')">
+            O valor é obrigatório.
+          </mat-error>
+          <mat-error *ngIf="pagamentoForm.get('valor')?.hasError('min')">
+            O valor deve ser maior que zero.
+          </mat-error>
+
+          <mat-error 
+  *ngIf="pagamentoForm.get('contaSelecionada')?.invalid && (pagamentoForm.get('contaSelecionada')?.touched || formSubmitted)">
+  A seleção de uma conta é obrigatória.
+</mat-error>
+        </mat-form-field>
+  
+        <mat-card-actions align="end">
+          <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit" 
+            [disabled]="pagamentoForm.invalid">
+            <mat-icon>send</mat-icon> Pagar
+          </button>
+        </mat-card-actions>
+        
+      </form>
+    </mat-card-content>
+  </mat-card>
