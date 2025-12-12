@@ -1,11 +1,10 @@
-name: BankMore: Build e Teste 
+name: BankMore Build e Teste 
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
   workflow_dispatch:
 
 jobs:
@@ -18,7 +17,7 @@ jobs:
     - name: Configurar Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 25 
+        node-version: 22 
         cache: 'npm'
 
     - name: Instalar Dependências
