@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable, catchError, of, map, delay, finalize } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
-import { Extrato } from '../models/extrato.model';
-import { Response } from '../models/response.model';
-import { ContaCorrenteService } from '../services/conta-corrente.service';
-import { MaterialModule } from '../shared/material-module';
+import { Extrato } from '../../models/extrato.model';
+import { Response } from '../../models/response.model';
+import { ContaCorrenteService } from '../../services/conta-corrente.service';
+import { MaterialModule } from '../../shared/material-module';
 import { CommonModule } from '@angular/common';
 
 @Component({

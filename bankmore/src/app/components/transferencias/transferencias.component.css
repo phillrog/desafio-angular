@@ -1,0 +1,18 @@
+.transferencia-card {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  /* Alinhamento do input de valor à direita */
+  .valor-input input {
+    text-align: right;
+  }
+  
+  .transfer-button {
+    margin-top: 32px;
+  }

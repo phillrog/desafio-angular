@@ -1,0 +1,45 @@
+<mat-card class="transferencia-card">
+  <mat-card-header>
+    <mat-icon mat-card-avatar color="primary">send</mat-icon>
+    <mat-card-title>Nova Transferência</mat-card-title>
+    <mat-card-subtitle>Envie dinheiro de forma segura.</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="transferForm" (ngSubmit)="solicitarTransferencia(); $event.preventDefault()">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número da Conta</mat-label>
+        <input matInput type="tel" formControlName="contaDestino" placeholder="Ex: 123456789" required autofocus>
+        <mat-icon matSuffix>account_balance</mat-icon>
+        <mat-error *ngIf="transferForm.get('contaDestino')?.hasError('required')">
+          A conta de destino é obrigatória.
+        </mat-error>
+        <mat-error *ngIf="transferForm.get('contaDestino')?.hasError('pattern')">
+          A conta deve conter apenas números.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width valor-input">
+        <mat-label>Valor da Transferência</mat-label>
+        <input matInput type="text" formControlName="valor" placeholder="0,00" mask="separator.2" thousandSeparator="."
+          decimalMarker="," required>
+
+
+        <mat-error *ngIf="transferForm.get('valor')?.hasError('valorMinimo')">
+          O valor deve ser maior que R$ 0,00.
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="transferForm.invalid || isSubmitting"
+        class="full-width transfer-button">
+        <span *ngIf="!isSubmitting">Transferir</span>
+        <span *ngIf="isSubmitting">
+          <mat-spinner diameter="20"></mat-spinner> Enviando...
+        </span>
+      </button>
+
+
+    </form>
+  </mat-card-content>
+</mat-card>

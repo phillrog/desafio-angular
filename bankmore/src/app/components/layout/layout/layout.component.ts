@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { ContaCorrenteService } from '../../services/conta-corrente.service';
+import { ContaCorrenteService } from '../../../services/conta-corrente.service';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../shared/material-module';
+import { MaterialModule } from '../../../shared/material-module';
 import { MenuComponent } from '../menu/menu.component';
-import { ToolbarComponent } from '../toolbar.component/toolbar.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'app-layout',

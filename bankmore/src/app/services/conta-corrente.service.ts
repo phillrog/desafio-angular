@@ -19,7 +19,9 @@ export class ContaCorrenteService {
   private saldoSubject = new BehaviorSubject<any>(null);
   saldoAtual$ = this.saldoSubject.asObservable();
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.getSaldo().subscribe();
+  }
 
   getInformacoes(): Observable<any> {    
     return this.http.get<any>(this.api.informacoes);

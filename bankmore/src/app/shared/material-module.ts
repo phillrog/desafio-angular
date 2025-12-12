@@ -24,6 +24,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; 
+import { ModalConfirmacaoComponent } from './components/modal-confirmacao.component/modal-confirmacao.component';
 
 @NgModule({
   declarations: [],
@@ -53,6 +54,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ModalConfirmacaoComponent
   ],
   exports: [
     MatButtonModule,
@@ -79,7 +81,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    CommonModule
+    CommonModule,
+    ModalConfirmacaoComponent
   ]
 })
-export class MaterialModule { }
+export class MaterialModule { 
+  
+}
+export { ModalConfirmacaoComponent };

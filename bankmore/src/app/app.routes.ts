@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout/layout.component';
-import { ExtratoComponent } from './extrato/extrato.component';
-import { PagamentoRapidoComponent } from './pagamento-rapido/pagamento-rapido.component';
+import { ExtratoComponent } from './components/extrato/extrato.component';
+import { LayoutComponent } from './components/layout/layout/layout.component';
+import { PagamentoRapidoComponent } from './components/pagamento-rapido/pagamento-rapido.component';
+import { TransferenciasComponent } from './components/transferencias/transferencias.component';
+
 
 
 export const routes: Routes = [
@@ -17,6 +19,10 @@ export const routes: Routes = [
             path: 'pagamento-rapido', 
             component: PagamentoRapidoComponent 
           },     
+          { 
+            path: 'transferir', 
+            component: TransferenciasComponent 
+          },    
           { 
               path: '', 
               redirectTo: 'extrato', 

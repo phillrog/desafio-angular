@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MaterialModule } from '../shared/material-module';
+import { MaterialModule } from '../../shared/material-module';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ContaCorrenteService } from '../services/conta-corrente.service';
+import { ContaCorrenteService } from '../../services/conta-corrente.service';
 import { catchError, finalize, of, tap } from 'rxjs';
 
 @Component({
