@@ -30,5 +30,5 @@ jobs:
       working-directory: ./bankmore
       
     - name: Rodar Testes Unitários
-      run: npm run test -- --watch=false --browsers=ChromeHeadless
+      run: npm run test
       working-directory: ./bankmore
