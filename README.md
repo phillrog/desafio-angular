@@ -47,6 +47,12 @@ O frontend Angular atua como o **Cliente** da arquitetura, responsável por gere
 
     ```
 
+    ou execute o docker compose
+
+    ```
+    docker compose up --force-recreate --build
+    ```
+
     O frontend estará disponível em `http://localhost:4200/`. Certifique-se de que os microsserviços do **BankMore.Services** estejam rodando e acessíveis via `environment.apiBFF`.
 
 
