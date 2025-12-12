@@ -1,3 +1,5 @@
+[![BankMore Build](https://github.com/phillrog/desafio-angular/actions/workflows/build.yml/badge.svg)](https://github.com/phillrog/desafio-angular/actions/workflows/build.yml)
+
 🏦 BankMore: Plataforma Frontend (Angular)
 ==========================================
 
