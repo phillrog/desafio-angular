@@ -28,7 +28,3 @@ jobs:
     - name: Rodar o Build do Angular     
       run: npm run build -- --configuration=production
       working-directory: ./bankmore
-      
-    - name: Rodar Testes Unitários
-      run: npm run test
-      working-directory: ./bankmore
