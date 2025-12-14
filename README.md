@@ -29,6 +29,9 @@ O frontend Angular atua como o **Cliente** da arquitetura, responsável por gere
 
 ---
 
+<img width="1918" height="964" alt="Captura de tela 2025-12-11 204835" src="https://github.com/user-attachments/assets/1eb407f2-dd83-4003-b40f-f96e521c6edc" />
+
+
 🚀 Como Rodar o Projeto
 -----------------------
 
